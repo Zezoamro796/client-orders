@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>نظام تسجيل طلبات العملاء</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- صفحة تسجيل الدخول -->
+  <div id="loginPage" class="login-container">
+    <h2>تسجيل الدخول</h2>
+    <form id="loginForm">
+      <input type="text" id="userId" placeholder="رقم المستخدم" required />
+      <input type="password" id="password" placeholder="كلمة المرور" required />
+      <button type="submit">دخول</button>
+    </form>
+  </div>
+
+  <!-- صفحة التطبيق الرئيسية -->
+  <div id="mainApp" class="app-container" style="display: none;">
+    <aside class="sidebar">
+      <h3>القائمة</h3>
+      <ul>
+        <li><button id="addOrderBtn">إضافة طلب</button></li>
+        <li><button id="viewOrdersBtn">الطلبات المسجلة</button></li>
+        <li id="addUserSection" style="display: none;"><button id="addUserBtn">إضافة موظف</button></li>
+        <li id="backupSection" style="display: none;"><button id="backupBtn">نسخة احتياطية</button></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <!-- واجهة إضافة طلب -->
+      <section id="orderSection" style="display: none;">
+        <h2>إضافة طلب</h2>
+        <form id="orderForm">
+          <input type="text" id="clientName" placeholder="اسم العميل" required />
+          <input type="text" id="clientAddress" placeholder="العنوان" required />
+          <input type="text" id="clientPhone" placeholder="رقم الهاتف" required />
+          <input type="text" id="clientProduct" placeholder="الصنف المطلوب" required />
+          <input type="file" id="clientImage" accept="image/*" />
+          <button type="submit">حفظ الطلب</button>
+        </form>
+      </section>
+
+      <!-- واجهة عرض الطلبات -->
+      <section id="ordersSection" style="display: none;">
+        <h2>الطلبات المسجلة</h2>
+        <input type="text" id="searchInput" placeholder="بحث بالاسم أو رقم الهاتف أو الحالة..." />
+        <button id="printBtn">طباعة إلى Excel</button>
+        <div id="ordersContainer" class="orders-container"></div>
+      </section>
+
+      <!-- واجهة إضافة موظف -->
+      <section id="userSection" style="display: none;">
+        <h2>إضافة موظف جديد</h2>
+        <form id="addUserForm">
+          <input type="text" id="newUserId" placeholder="رقم المستخدم" required />
+          <input type="password" id="newUserPassword" placeholder="كلمة المرور" required />
+          <input type="text" id="newUserName" placeholder="اسم المستخدم" required />
+          <select id="newUserRole">
+            <option value="user">مستخدم عادي</option>
+            <option value="admin">أدمن</option>
+          </select>
+          <button type="submit">إضافة</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
